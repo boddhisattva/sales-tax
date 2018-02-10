@@ -13,10 +13,11 @@ class TaxCalculator
   def calculate_tax(item_details)
     basic_sales_tax = calculate_basic_sales_tax(item_details)
     import_duty_sales_tax = calculate_import_duty_sales_tax(item_details)
+    total_sales_tax_on_item = total_sales_tax_on_item(basic_sales_tax, import_duty_sales_tax)
 
-    item_price_inclusive_of_tax = basic_sales_tax + import_duty_sales_tax + item_details[:price]
+    item_price_inclusive_of_tax = item_details[:price] + total_sales_tax_on_item
 
-    [item_price_inclusive_of_tax, basic_sales_tax + import_duty_sales_tax]
+    [item_price_inclusive_of_tax, total_sales_tax_on_item]
   end
 
   private
@@ -45,5 +46,9 @@ class TaxCalculator
 
     def item_is_imported?(item_name)
       item_name.include?(IMPORTED)
+    end
+
+    def total_sales_tax_on_item(basic_sales_tax, import_duty_sales_tax)
+      basic_sales_tax + import_duty_sales_tax
     end
 end
