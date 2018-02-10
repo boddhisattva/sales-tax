@@ -11,16 +11,19 @@ class TaxCalculator
   NUMBER_TO_ROUND_OFF_TO = (1/BigDecimal.new(20)).freeze
 
   def calculate_tax(item_details)
-    basic_sales_tax = calculate_basic_sales_tax(item_details)
-    import_duty_sales_tax = calculate_import_duty_sales_tax(item_details)
-    total_sales_tax_on_item = total_sales_tax_on_item(basic_sales_tax, import_duty_sales_tax)
-
+    total_sales_tax_on_item = calculate_sales_tax(item_details)
     item_price_inclusive_of_tax = item_details[:price] + total_sales_tax_on_item
 
     [item_price_inclusive_of_tax, total_sales_tax_on_item]
   end
 
   private
+
+    def calculate_sales_tax(item_details)
+      basic_sales_tax = calculate_basic_sales_tax(item_details)
+      import_duty_sales_tax = calculate_import_duty_sales_tax(item_details)
+      total_sales_tax_on_item(basic_sales_tax, import_duty_sales_tax)
+    end
 
     def calculate_basic_sales_tax(item_details)
       return BigDecimal.new(0) if sales_tax_is_not_applicable?(item_details[:name])
