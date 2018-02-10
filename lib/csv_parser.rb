@@ -13,7 +13,7 @@ class CsvParser
     row_details = []
 
     CSV.foreach(filename, headers: true,
-                          header_converters: ->(f) { f.strip }, converters: ->(f) { f.strip }) do |row|
+                          header_converters: ->(value) { value.strip }, converters: ->(value) { value.strip }) do |row|
       row_details << row
     end
 
