@@ -4,11 +4,16 @@ class ReceiptGenerator
 
     items.each do |item|
       item_details = item.details
-      puts "#{item_details[:quantity]}, #{item_details[:name]}, #{item_details[:price].to_s('F')}\n"
+      puts "#{item_details[:quantity]}, #{item_details[:name]}, #{convert_big_decimal_to_floating_point_notation(item_details[:price])}\n"
       total_cost += item_details[:price]
     end
 
-    puts "\nSales Taxes: #{total_sales_tax.to_s('F')}"
-    puts "Total: #{total_cost.to_s('F')}"
+    puts "\nSales Taxes: #{convert_big_decimal_to_floating_point_notation(total_sales_tax)}"
+    puts "Total: #{convert_big_decimal_to_floating_point_notation(total_cost)}"
   end
+
+  private
+    def convert_big_decimal_to_floating_point_notation(number)
+      number.to_s('F')
+    end
 end
