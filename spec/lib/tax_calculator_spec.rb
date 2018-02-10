@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 describe TaxCalculator do
   describe '#calculate_tax' do
     context 'given an item with certain details' do
       it 'calculates item price inclusive of tax and total sales tax wrt the item' do
-        item_details = {name: 'imported bottle of perfume', price: BigDecimal.new("27.99"), quantity: 1}
+        item_details = { name: 'imported bottle of perfume', price: BigDecimal.new('27.99'), quantity: 1 }
 
         tax_calculator = TaxCalculator.new
 

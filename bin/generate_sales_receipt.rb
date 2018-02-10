@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../lib/csv_parser'
 require_relative '../lib/line_item'
 require_relative '../lib/shopping_cart'
@@ -15,15 +17,13 @@ def file_not_found_message
 end
 
 file_name = "input/#{ARGV.first}"
-unless File.exist?(file_name)
-  raise file_not_found_message
-end
+raise file_not_found_message unless File.exist?(file_name)
 
 products = CsvParser.new(file_name).read
 
 line_items = products.each_with_object([]) do |line_item, items|
-               items << LineItem.new(line_item["Product"], BigDecimal.new(line_item["Price"]), line_item["Quantity"].to_i)
-             end
+  items << LineItem.new(line_item['Product'], BigDecimal.new(line_item['Price']), line_item['Quantity'].to_i)
+end
 
 shopping_cart = ShoppingCart.new(line_items, TaxCalculator.new, ReceiptGenerator.new)
 shopping_cart.purchase_items

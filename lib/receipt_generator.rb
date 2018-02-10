@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReceiptGenerator
   def generate(items, total_sales_tax)
     total_cost = 0
@@ -13,6 +15,7 @@ class ReceiptGenerator
   end
 
   private
+
     def convert_big_decimal_to_floating_point_notation(number)
       number.to_s('F')
     end

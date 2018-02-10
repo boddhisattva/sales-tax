@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 class CsvParser
@@ -11,7 +13,7 @@ class CsvParser
     row_details = []
 
     CSV.foreach(filename, headers: true,
-      header_converters: lambda {|f| f.strip}, converters: lambda {|f| f.strip}) do |row|
+                          header_converters: ->(f) { f.strip }, converters: ->(f) { f.strip }) do |row|
       row_details << row
     end
 

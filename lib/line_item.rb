@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LineItem
   attr_reader :name, :price, :quantity
 

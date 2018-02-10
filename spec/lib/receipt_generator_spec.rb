@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe ReceiptGenerator do
   describe '#generate' do
     context 'given a list of items and the total sales tax' do
@@ -5,13 +7,13 @@ describe ReceiptGenerator do
         file_name = 'input/shopping_basket3.csv'
         line_items = CsvParser.new(file_name).read
         items = line_items.each_with_object([]) do |line_item, items|
-                  items << LineItem.new(line_item["Product"], BigDecimal.new(line_item["Price"]), line_item["Quantity"].to_i)
-                end
-        total_sales_tax = BigDecimal.new("6.7")
+          items << LineItem.new(line_item['Product'], BigDecimal.new(line_item['Price']), line_item['Quantity'].to_i)
+        end
+        total_sales_tax = BigDecimal.new('6.7')
 
         receipt_generator = ReceiptGenerator.new
 
-        expect {receipt_generator.generate(items, total_sales_tax)}.to output(purchase_receipt).to_stdout
+        expect { receipt_generator.generate(items, total_sales_tax) }.to output(purchase_receipt).to_stdout
       end
     end
   end

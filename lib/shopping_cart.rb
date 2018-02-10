@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShoppingCart
   attr_reader :items, :tax_calculator, :receipt_generator
 
@@ -23,6 +25,7 @@ class ShoppingCart
   end
 
   private
+
     def calculate_sales_tax_for_n_items_of_a_product(total_sales_tax_on_item, item_quantity)
       total_sales_tax_on_item * item_quantity
     end
