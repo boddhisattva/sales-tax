@@ -3,7 +3,7 @@
 describe ShoppingCart do
   describe '#purchase_items' do
     context 'given a list of items, a tax calculator and a receipt generator' do
-      it 'calculates details related to the items in a cart and generates a sales receipt' do
+      it 'calculates costs related to the items in a cart and generates a sales receipt' do
         file_name = 'input/shopping_basket3.csv'
         line_items = CsvParser.new(file_name).read
         items = line_items.each_with_object([]) do |line_item, items|
