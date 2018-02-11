@@ -1,9 +1,9 @@
 ## About
 
 This is a program that prints out a receipt which has the following details related to a purchase:
-- Items purchased and their related cost(including applicable taxes if any)
-- Total sales tax collected
-- Total costs incurred related to the overall purchase.
+* Items purchased and their related cost(including applicable taxes if any)
+* Total sales tax collected
+* Total costs incurred related to the overall purchase.
 
 ## Code related design decisions
 
@@ -20,9 +20,6 @@ This is a program that prints out a receipt which has the following details rela
 * Imported items are those that have the word `imported` in them.
 
 * With **Single Responsiblity Principle** in mind the responsibility of each class is:
-
-
-
   * A `CsvParser` class that is used to read the input from a CSV file and remove all unnecessary leading and trailing whitespaces
   * A `LineItem` class that is used to contain the different properties related to each line item.
   * A `TaxCalculator` class that calculates
