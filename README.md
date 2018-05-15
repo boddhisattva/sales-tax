@@ -6,6 +6,8 @@ This is a program that prints out a receipt which has the following details rela
 * Total sales tax collected
 * Total costs incurred related to the overall purchase.
 
+One can read the detailed problem statement via [this link](https://github.com/boddhisattva/sales_tax/blob/master/problem_statement.md)
+
 ## Code related design decisions
 
 * The entities related to the problem domain are - Line Item, Receipt, Shopping Cart and  Tax
