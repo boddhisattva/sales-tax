@@ -4,8 +4,8 @@ require 'bigdecimal'
 
 class TaxCalculator
   ITEMS_EXEMPT_FROM_BASIC_SALES_TAX = { books: ['book'],
-                                  food: %w[chocolate chocolates],
-                                  medical_products: ['pills'] }.freeze
+                                        food: %w[chocolate chocolates],
+                                        medical_products: ['pills'] }.freeze
 
   BASIC_SALES_TAX_RATE = (1 / BigDecimal.new(10)).freeze
   IMPORT_DUTY_SALES_TAX_RATE = (1 / BigDecimal.new(20)).freeze
