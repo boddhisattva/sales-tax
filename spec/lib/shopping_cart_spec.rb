@@ -6,11 +6,8 @@ describe ShoppingCart do
       it 'calculates costs related to the items in a cart and generates a sales receipt' do
         file_name = 'input/shopping_basket3.csv'
         line_items = CsvParser.new(file_name).read
-        items = line_items.each_with_object([]) do |line_item, items|
-          items << LineItem.new(line_item['Product'], BigDecimal.new(line_item['Price']), line_item['Quantity'].to_i)
-        end
 
-        shopping_cart = ShoppingCart.new(items, TaxCalculator.new, ReceiptGenerator.new)
+        shopping_cart = ShoppingCart.new(line_items, TaxCalculator.new, ReceiptGenerator.new)
 
         expect { shopping_cart.purchase_items }.to output(purchase_receipt).to_stdout
       end

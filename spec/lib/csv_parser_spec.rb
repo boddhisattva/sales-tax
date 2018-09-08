@@ -7,10 +7,10 @@ describe CsvParser do
         file_name = 'input/shopping_basket2.csv'
         products = CsvParser.new(file_name).read
 
-        line_items = [CSV::Row.new(%w[Quantity Product Price], ['1', 'imported box of chocolates', '10.00'], false),
-                      CSV::Row.new(%w[Quantity Product Price], ['1', 'imported bottle of perfume', '47.50'], false)]
+        line_items = [LineItem.new('imported box of chocolates', BigDecimal.new('10.00'), 1),
+                      LineItem.new('imported bottle of perfume', BigDecimal.new('47.50'), 1)]
 
-        expect(products).to match_array(line_items)
+        expect(products.first.details).to eq(line_items.first.details)
       end
     end
   end
