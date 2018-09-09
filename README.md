@@ -17,8 +17,8 @@ One can read the detailed problem statement via [this link](https://github.com/b
 
 * Have made use of `BigDecimal` class in Ruby to represent money related values in a more accurate manner
 
-* Items that are exempt from basic sales tax(st) are specified as part of the `TaxCalculator` class
-  * Items are categorized as food, medical products and books based on certain keywords in the item names. Those keywords that'll help check if an item is exempt from sales tax are also specified  as part of the `TaxCalculator` class
+* Items that are exempt from basic sales tax(st) are specified as part of the `LineItem` class
+  * Items are categorized as food, medical products and books based on certain keywords in the item names. Those categories that'll help check if an item is exempt from sales tax are also specified  as part of the `LineItem` class
 
 * Imported items are those that have the word `imported` in them.
 
