@@ -3,7 +3,7 @@
 describe CsvParser do
   describe '#read' do
     context 'given a csv' do
-      it 'returns row details with removed whitespaces for each value of the CSV' do
+      it 'returns a collection of line items with removed whitespaces for each value of the CSV' do
         file_name = 'input/shopping_basket2.csv'
         products = CsvParser.new(file_name).read
 
