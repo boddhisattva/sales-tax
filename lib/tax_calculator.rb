@@ -3,10 +3,6 @@
 require 'bigdecimal'
 
 class TaxCalculator
-  ITEMS_EXEMPT_FROM_BASIC_SALES_TAX = { books: ['book'],
-                                        food: %w[chocolate chocolates],
-                                        medical_products: ['pills'] }.freeze
-
   BASIC_SALES_TAX_RATE = (1 / BigDecimal.new(10)).freeze
   IMPORT_DUTY_SALES_TAX_RATE = (1 / BigDecimal.new(20)).freeze
   NUMBER_TO_ROUND_OFF_TO = (1 / BigDecimal.new(20)).freeze
@@ -27,7 +23,7 @@ class TaxCalculator
     end
 
     def calculate_basic_sales_tax(item_details)
-      return BigDecimal.new(0) if basic_sales_tax_is_not_applicable?(item_details[:name])
+      return BigDecimal.new(0) unless item_details[:basic_sales_tax]
 
       round_up_to_the_nearest_number(item_details[:price] * BASIC_SALES_TAX_RATE)
     end
@@ -40,9 +36,7 @@ class TaxCalculator
       end
     end
 
-    def basic_sales_tax_is_not_applicable?(item_name)
-      ITEMS_EXEMPT_FROM_BASIC_SALES_TAX.values.flatten.any? { |word| item_name.include?(word) }
-    end
+
 
     def round_up_to_the_nearest_number(price)
       (price / NUMBER_TO_ROUND_OFF_TO).ceil * NUMBER_TO_ROUND_OFF_TO
