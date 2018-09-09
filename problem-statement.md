@@ -9,7 +9,7 @@ a tax rate of n%, a shelf price of p contains (np/100 rounded up to the nearest 
 amount of sales tax.
 
 Write an application that prints out the receipt details for these shopping baskets;
-this application should include unit tests. The output should be to standard out or CSV. Please publish your code on Github and include instructions to run your code.
+this application should include unit tests. The output should be to standard out or CSV.
 
 Proper architecture design is important. Each row in the input represents a line
 item of the receipt.
