@@ -8,8 +8,8 @@ total amounts of sales taxes paid. The rounding rules for sales tax are that for
 a tax rate of n%, a shelf price of p contains (np/100 rounded up to the nearest 0.05)
 amount of sales tax.
 
-Write an application that prints out the receipt details for these shopping baskets;
-this application should include unit tests. The output should be to standard out or CSV.
+Write an application that prints out the receipt details for these shopping baskets.
+The output should be to standard out or CSV.
 
 Proper architecture design is important. Each row in the input represents a line
 item of the receipt.
