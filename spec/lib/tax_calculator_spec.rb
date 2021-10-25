@@ -4,7 +4,7 @@ describe TaxCalculator do
   describe '#calculate_tax' do
     context 'given an item with certain details' do
       it 'calculates item price inclusive of tax and total sales tax wrt the item' do
-        item = LineItem.new('imported bottle of perfume', BigDecimal.new('27.99'), 1)
+        item = LineItem.new('imported bottle of perfume', BigDecimal('27.99'), 1)
 
         tax_calculator = TaxCalculator.new
 

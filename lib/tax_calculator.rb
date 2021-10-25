@@ -3,9 +3,9 @@
 require 'bigdecimal'
 
 class TaxCalculator
-  BASIC_SALES_TAX_RATE = (1 / BigDecimal.new(10)).freeze
-  IMPORT_DUTY_SALES_TAX_RATE = (1 / BigDecimal.new(20)).freeze
-  NUMBER_TO_ROUND_OFF_TO = (1 / BigDecimal.new(20)).freeze
+  BASIC_SALES_TAX_RATE = (1 / BigDecimal(10)).freeze
+  IMPORT_DUTY_SALES_TAX_RATE = (1 / BigDecimal(20)).freeze
+  NUMBER_TO_ROUND_OFF_TO = (1 / BigDecimal(20)).freeze
 
   def calculate_tax(item_details)
     total_sales_tax_on_item = calculate_sales_tax(item_details)
@@ -23,7 +23,7 @@ class TaxCalculator
     end
 
     def calculate_basic_sales_tax(item_details)
-      return BigDecimal.new(0) unless item_details[:basic_sales_tax]
+      return BigDecimal(0) unless item_details[:basic_sales_tax]
 
       round_up_to_the_nearest_number(item_details[:price] * BASIC_SALES_TAX_RATE)
     end
@@ -32,11 +32,9 @@ class TaxCalculator
       if item_details[:imported]
         round_up_to_the_nearest_number(item_details[:price] * IMPORT_DUTY_SALES_TAX_RATE)
       else
-        BigDecimal.new(0)
+        BigDecimal(0)
       end
     end
-
-
 
     def round_up_to_the_nearest_number(price)
       (price / NUMBER_TO_ROUND_OFF_TO).ceil * NUMBER_TO_ROUND_OFF_TO

@@ -16,7 +16,7 @@ class CsvParser
                           header_converters: ->(value) { value.strip },
                           converters: ->(value) { value.strip }) do |row|
 
-      row_details << LineItem.new(row['Product'], BigDecimal.new(row['Price']), row['Quantity'].to_i)
+      row_details << LineItem.new(row['Product'], BigDecimal(row['Price']), row['Quantity'].to_i)
     end
 
     row_details
