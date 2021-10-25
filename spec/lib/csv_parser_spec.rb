@@ -7,8 +7,8 @@ describe CsvParser do
         file_name = 'input/shopping_basket2.csv'
         products = CsvParser.new(file_name).read
 
-        line_items = [LineItem.new('imported box of chocolates', BigDecimal.new('10.00'), 1),
-                      LineItem.new('imported bottle of perfume', BigDecimal.new('47.50'), 1)]
+        line_items = [LineItem.new('imported box of chocolates', BigDecimal('10.00'), 1),
+                      LineItem.new('imported bottle of perfume', BigDecimal('47.50'), 1)]
 
         expect(products.first.details).to eq(line_items.first.details)
       end

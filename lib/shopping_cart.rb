@@ -15,9 +15,12 @@ class ShoppingCart
 
     items.each do |item|
       item_details = item.details
-      item_price_inclusive_of_tax, total_sales_tax_on_item = tax_calculator.calculate_tax(item_details.reject { |k,v| k == :quantity})
+      item_price_inclusive_of_tax, total_sales_tax_on_item = tax_calculator.calculate_tax(item_details.reject do |k, _v|
+                                                                                            k == :quantity
+                                                                                          end)
       total_sales_tax += calculate_sales_tax_for_n_items_of_a_product(total_sales_tax_on_item, item_details[:quantity])
-      total_item_cost = calculate_total_price_for_n_items_of_a_product(item_price_inclusive_of_tax, item_details[:quantity])
+      total_item_cost = calculate_total_price_for_n_items_of_a_product(item_price_inclusive_of_tax,
+                                                                       item_details[:quantity])
       items_price_inclusive_of_taxes << LineItem.new(item_details[:name], total_item_cost, item_details[:quantity])
     end
 
@@ -26,11 +29,11 @@ class ShoppingCart
 
   private
 
-    def calculate_sales_tax_for_n_items_of_a_product(total_sales_tax_on_item, item_quantity)
-      total_sales_tax_on_item * item_quantity
-    end
+  def calculate_sales_tax_for_n_items_of_a_product(total_sales_tax_on_item, item_quantity)
+    total_sales_tax_on_item * item_quantity
+  end
 
-    def calculate_total_price_for_n_items_of_a_product(item_price_inclusive_of_tax, item_quantity)
-      item_price_inclusive_of_tax * item_quantity
-    end
+  def calculate_total_price_for_n_items_of_a_product(item_price_inclusive_of_tax, item_quantity)
+    item_price_inclusive_of_tax * item_quantity
+  end
 end

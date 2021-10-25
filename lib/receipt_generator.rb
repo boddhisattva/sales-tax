@@ -16,7 +16,7 @@ class ReceiptGenerator
 
   private
 
-    def convert_big_decimal_to_floating_point_notation(number)
-      number.to_s('F')
-    end
+  def convert_big_decimal_to_floating_point_notation(number)
+    number.to_s('F')
+  end
 end

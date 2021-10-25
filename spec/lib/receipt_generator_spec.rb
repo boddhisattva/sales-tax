@@ -6,7 +6,7 @@ describe ReceiptGenerator do
       it 'prints receipt details' do
         file_name = 'input/shopping_basket3.csv'
         line_items = CsvParser.new(file_name).read
-        total_sales_tax = BigDecimal.new('6.7')
+        total_sales_tax = BigDecimal('6.7')
 
         receipt_generator = ReceiptGenerator.new
 

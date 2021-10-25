@@ -36,7 +36,7 @@ Based on the [given problem statement](https://github.com/boddhisattva/sales-tax
 ## Usage
 
 ### Dependencies
-* Ruby 2.5
+* Ruby 2.7.4
 * Please refer to the Gemfile for the other dependencies
 
 ### Setup
