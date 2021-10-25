@@ -41,7 +41,7 @@ One can read the detailed problem statement via [this link](https://github.com/b
 ## Usage
 
 ### Dependencies
-* Ruby 2.5
+* Ruby 2.7.4
 * Please refer to the Gemfile for the other dependencies
 
 ### Setup

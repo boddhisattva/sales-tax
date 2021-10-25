@@ -28,11 +28,11 @@ class LineItem
 
   private
 
-    def item_imported?(name)
-      name.include?(IMPORTED)
-    end
+  def item_imported?(name)
+    name.include?(IMPORTED)
+  end
 
-    def basic_sales_tax_is_applicable?(name)
-      !ITEMS_EXEMPT_FROM_BASIC_SALES_TAX.values.flatten.any? { |word| name.include?(word) }
-    end
+  def basic_sales_tax_is_applicable?(name)
+    !ITEMS_EXEMPT_FROM_BASIC_SALES_TAX.values.flatten.any? { |word| name.include?(word) }
+  end
 end

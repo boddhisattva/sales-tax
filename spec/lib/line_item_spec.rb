@@ -3,7 +3,7 @@
 describe LineItem do
   describe '#initialize' do
     it 'it determines whether a line item is imported, has basic sales tax applicable and also sets other related attributes' do
-      line_item = LineItem.new('imported box of chocolates', BigDecimal("10"), 1)
+      line_item = LineItem.new('imported box of chocolates', BigDecimal('10'), 1)
 
       expect(line_item.imported).to be true
       expect(line_item.basic_sales_tax).to be false
